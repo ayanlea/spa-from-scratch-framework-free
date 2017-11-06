@@ -1,9 +1,27 @@
+/* 
+check if localstorage is enabled 
+*/
 if(window.localStorage == null || window.localStorage == 'undefined'){
     document.getElementById("error-element").style.display = "block"
 }
 else{
     document.getElementById("error-element").style.display = "none";
 }
+setTimeout(function(){ 
+    /* 
+    This error message is displayed only for IE 11 or older versions 
+    on Windows 7 or 8 operating system where CORS is not 
+    fully supported as compared to other modern browsers.
+    */
+    if(localStorage.length == 0 || localStorage.length == 0){
+        document.getElementById("error-element").style.display = "block"
+    }
+    else{
+        document.getElementById("error-element").style.display = "none";
+    }
+    console.log(" TIme's up ");
+}, 3000);
+/* End of check */
 
 var userInfo = localStorage.getItem("userObject"),
     userParsed = JSON.parse(userInfo),
