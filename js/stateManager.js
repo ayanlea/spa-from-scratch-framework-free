@@ -1,3 +1,10 @@
+if(window.localStorage == null || window.localStorage == 'undefined'){
+    document.getElementById("error-element").style.display = "block"
+}
+else{
+    document.getElementById("error-element").style.display = "none";
+}
+
 var userInfo = localStorage.getItem("userObject"),
     userParsed = JSON.parse(userInfo),
     userCategories = localStorage.getItem("userCategories"),
@@ -130,7 +137,6 @@ function hashNavigation() {
         var localData = localStorage.getItem("articleObject");
         var parsedLocalData = JSON.parse(localData);
     
-
         for (var i in parsedLocalData) {
             if (parsedLocalData[i].source === dataSourceId) {
                 articleDataHTML += articlesTemplate.replace(/{{articleAuthor}}/g, parsedLocalData[i].author)
@@ -268,10 +274,9 @@ function hashNavigation() {
     }
     
     function topArticlesState() {
-    
+        
         var localData = localStorage.getItem("articleObject");
         var parsedLocalData = JSON.parse(localData);
-    
         var userInfo = localStorage.getItem("userObject");
         var userParsed = JSON.parse(userInfo);
     
