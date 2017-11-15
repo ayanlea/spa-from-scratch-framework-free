@@ -1,8 +1,6 @@
 ### spa-from-scratch-framework-free
-## Project for admission to [Code 301: Intermediate Software Development](https://www.codefellows.org/courses/code-301/intermediate-software-development/)
 # Built by 1 person (not a group ) from scratch
-# Pictures tell more than words.
-### Code available for review
+## Pictures tell more than words.
 # [Demo application - Heroku ](https://framework-free-spa.herokuapp.com/)
 ___
 ![spa_img_1](https://user-images.githubusercontent.com/29050911/32425988-fd8dbc78-c26b-11e7-9cbe-9e626eddfd37.png)
