@@ -5,7 +5,7 @@
  ** Version 1.0
  */
 
-var NewsApiByUserModel = (function() {
+let NewsApiByUserModel = (function () {
 
     var userObject = [];
     var articleObject = [];
@@ -16,7 +16,7 @@ var NewsApiByUserModel = (function() {
     var userCategoriesObject = {};
 
 
-    function UserProfile(firstname, lastname, password, email, terms, loginState,country,categories) {
+    function UserProfile(firstname, lastname, password, email, terms, loginState, country, categories) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.password = password;
@@ -71,7 +71,7 @@ var NewsApiByUserModel = (function() {
         this.publishedAt = publishedAt;
     }
 
-    function Slug(originalString){
+    function Slug(originalString) {
         var search = /\W/g;
         var replace = "-";
         var newString = originalString.split(search).join(replace);
@@ -83,7 +83,7 @@ var NewsApiByUserModel = (function() {
     var newsModObject = {};
 
     // set news source object
-    newsModObject.setNewsSource = function(id, name, description, url, category, language, country, sortBysAvailable) {
+    newsModObject.setNewsSource = function (id, name, description, url, category, language, country, sortBysAvailable) {
         for (var i in sourceObject) {
             if (sourceObject[i].name === name) {
                 sourceObject.id = id;
@@ -99,11 +99,11 @@ var NewsApiByUserModel = (function() {
         }
         var sourceItem = new NewsSource(id, name, description, url, category, language, country, sortBysAvailable);
         sourceObject.push(sourceItem);
-        localStorage.setItem('sourceObject',JSON.stringify(sourceObject));
+        localStorage.setItem('sourceObject', JSON.stringify(sourceObject));
     };
 
     // set news articles object
-    newsModObject.setNewsArticle = function(source, author, title, description, url, urlToImage, publishedAt) {
+    newsModObject.setNewsArticle = function (source, author, title, description, url, urlToImage, publishedAt) {
         for (var i in articleObject) {
             if (articleObject[i].title == title && articleObject[i].title == null) {
                 articleObject.source = source;
@@ -116,14 +116,14 @@ var NewsApiByUserModel = (function() {
                 return;
             }
         }
-        
-        var articleItem = new NewsArticle(source,author, title, description, url, urlToImage, publishedAt);
+
+        var articleItem = new NewsArticle(source, author, title, description, url, urlToImage, publishedAt);
         articleObject.push(articleItem);
-        localStorage.setItem('articleObject',JSON.stringify(articleObject));
+        localStorage.setItem('articleObject', JSON.stringify(articleObject));
     };
 
     // set users object
-    newsModObject.setUser = function(firstname, lastname, password, email, terms, loginState,country,categories) {
+    newsModObject.setUser = function (firstname, lastname, password, email, terms, loginState, country, categories) {
         for (var i in userObject) {
             if (userObject[i].email === email) {
                 userObject[i].firstname = firstname;
@@ -145,20 +145,20 @@ var NewsApiByUserModel = (function() {
                 return;
             }
         }
-        var userItem = new UserProfile(firstname, lastname, password, email, terms, loginState,country,categories);
+        var userItem = new UserProfile(firstname, lastname, password, email, terms, loginState, country, categories);
         userObject.push(userItem);
-        localStorage.setItem('userObject',JSON.stringify(userObject));
+        localStorage.setItem('userObject', JSON.stringify(userObject));
 
         userCategoriesObject.country = country;
         userCategoriesObject.categories = categories;
         userCategoriesArray.push(userCategoriesObject);
 
-        localStorage.setItem('userCategories',JSON.stringify(userCategoriesArray));
+        localStorage.setItem('userCategories', JSON.stringify(userCategoriesArray));
 
- 
+
     };
     // set news source object
-    newsModObject.setNewsCategories = function(category) {
+    newsModObject.setNewsCategories = function (category) {
         for (var i in categoriesObject) {
             if (categoriesObject[i].category === category) {
                 categoriesObject[i].category = category;
@@ -167,26 +167,26 @@ var NewsApiByUserModel = (function() {
         }
         var sourceCat = new NewsCategories(category);
         categoriesObject.push(sourceCat);
-        localStorage.setItem('categoriesObject',JSON.stringify(categoriesObject));
+        localStorage.setItem('categoriesObject', JSON.stringify(categoriesObject));
     };
-    
-        // get categories object
-        newsModObject.getCategoriesObject = function() {
-            var categoriesObjectCopy = [];
-            for (var i in categoriesObject) {
-                var catItem = categoriesObject[i];
-                var catItemCopy = {};
-                for (var p in catItem) {
-                    catItemCopy[p] = catItem[p];
-                }
-                categoriesObjectCopy.push(catItemCopy);
+
+    // get categories object
+    newsModObject.getCategoriesObject = function () {
+        var categoriesObjectCopy = [];
+        for (var i in categoriesObject) {
+            var catItem = categoriesObject[i];
+            var catItemCopy = {};
+            for (var p in catItem) {
+                catItemCopy[p] = catItem[p];
             }
-            return categoriesObjectCopy;
-        };
-    
+            categoriesObjectCopy.push(catItemCopy);
+        }
+        return categoriesObjectCopy;
+    };
+
 
     // get users object
-    newsModObject.getUserObject = function() {
+    newsModObject.getUserObject = function () {
         var userObjectCopy = [];
         for (var i in userObject) {
             var userItem = userObject[i];
@@ -200,7 +200,7 @@ var NewsApiByUserModel = (function() {
     };
 
     // get articles object
-    newsModObject.getArticleObject = function() {
+    newsModObject.getArticleObject = function () {
         var articleObjectCopy = [];
         for (var i in articleObject) {
             var articleItem = articleObject[i];
@@ -214,7 +214,7 @@ var NewsApiByUserModel = (function() {
     };
 
     // get news source object
-    newsModObject.getSourceObject = function() {
+    newsModObject.getSourceObject = function () {
         var sourceObjectCopy = [];
         for (var i in sourceObject) {
             var sourceItem = sourceObject[i];
