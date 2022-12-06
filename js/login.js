@@ -1,4 +1,5 @@
 function userState(){
+    console.log("userState() was called")
     var userInfo = localStorage.getItem("userObject");
     var userParsed = JSON.parse(userInfo);
     if (typeof userInfo !== 'undefined' && userInfo !== null && userParsed[0].loginState === true){
@@ -12,6 +13,7 @@ function userState(){
     }
 }
 function login(e) {
+    console.log("login() was called")
     var dataPage = e.getAttribute("data-page");
     showHideElements(dataPage);
     var userInfo = localStorage.getItem("userObject");
@@ -21,6 +23,7 @@ function login(e) {
     }
 }
 function logout(e) {
+    console.log("logout() was called")
     var userInfo = localStorage.getItem("userObject");
     var userParsed = JSON.parse(userInfo);
         userParsed[0].loginState = false;
@@ -40,12 +43,14 @@ function logout(e) {
     topArticlesState();  
    }
 function getRegister(e) {
+    console.log("getRegister() was called")
     var dataPage = e.getAttribute("data-page");
     showHideElements(dataPage);
 }
 
 
 function loginForm() {
+    console.log("loginForm() was called")
     var firstname = document.forms["loginform"]["firstnameLogin"].value;
     var lastname = document.forms["loginform"]["lastnameLogin"].value;
     var email = document.forms["loginform"]["emailLogin"].value;
@@ -100,6 +105,7 @@ function loginForm() {
 }
 
 function registrationForm() {
+    console.log("registrationForm() was called")
     document.getElementById("register-section").style.display = "none";
     var categories = [];
     var firstname = document.forms["registerform"]["firstnameRegister"].value;

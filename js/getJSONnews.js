@@ -1,4 +1,5 @@
-var getJSONnews = function(url, callback) {
+var getJSONnews = function (url, callback) {
+    console.log("getJSONnews() was called")
     var xhr = new XMLHttpRequest();
     xhr.open('GET', url, true);
     xhr.responseType = 'json';
@@ -14,6 +15,7 @@ var getJSONnews = function(url, callback) {
 };
 
 function getData(url,source,sort,dataSourceSort,apiKey,dataSourceId, dataPage){
+    console.log("getData() was called")
     getJSONnews(url+source+sort+dataSourceSort+apiKey,
             function(err, data) {
                 if (err !== null) {
